@@ -107,27 +107,28 @@ namespace camera_signalman {
 
             cameraSuscribers_.push_back(subscriber);
         }
-
+        std::cout << "1" << std::endl;
         //Setting current frameID to first in list
         currentFrameID_ = subscribers_camera_feeds_frame_ids_[0];
 
         //Init services
 
+        std::cout << "2" << std::endl;
         //select_camera_feed_with_index
         selectCameraIndexServiceServer_ = nodeHandle_.advertiseService("/camera_signalman/select_camera_feed_with_index",
                                                                        &Camera_signalman_nodelet::selectCameraFeedServiceIndexCallback,
                                                                        this);
-
+        std::cout << "3" << std::endl;
         //select_camera_feed_with_topic
         selectCameraFrameIDServiceServer_ = nodeHandle_.advertiseService("/camera_signalman/select_camera_feed_with_frame_id",
                                                                        &Camera_signalman_nodelet::selectCameraFeedServiceFrameIDCallback,
                                                                        this);
-
+        std::cout << "4" << std::endl;
         sweepTimer_ = nodeHandle_.createTimer(ros::Duration(1.0),
                                               &Camera_signalman_nodelet::sweepTimerCallback,
                                               this);
-
-        sweepTimer_.stop();
+        std::cout << "5" << std::endl;
+        //sweepTimer_.stop();
 
         //sweep_cameras
         sweepCamerasServiceServer_ = nodeHandle_.advertiseService("/camera_signalman/sweep_cameras",
@@ -257,10 +258,10 @@ namespace camera_signalman {
 
         ROS_INFO("[camera_signalman] Sweep tick! Now on %s", currentFrameID_.c_str());
 
-        if (sweepcurrentIndex_ == sweepStartIndex_){
-            sweepTimer_.stop();
-            ROS_INFO("[camera_signalman] Sweep stopped");
-        }
+        // if (sweepcurrentIndex_ == sweepStartIndex_){
+        //     sweepTimer_.stop();
+        //     ROS_INFO("[camera_signalman] Sweep stopped");
+        // }
 
     }
 }

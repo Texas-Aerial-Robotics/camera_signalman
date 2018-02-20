@@ -1,11 +1,14 @@
 subscribers:
 
   camera_topics: [
-    "/cv_camera/image_raw"
+    "/webcam/image_raw",
+    "/webcam2/image_raw"
+
   ]
 
   camera_frame_ids: [
     "camera",
+    "camera2"
   ]
 
   queue_size: 1
