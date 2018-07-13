@@ -124,7 +124,7 @@ namespace camera_signalman {
                                                                        &Camera_signalman_nodelet::selectCameraFeedServiceFrameIDCallback,
                                                                        this);
         std::cout << "4" << std::endl;
-        sweepTimer_ = nodeHandle_.createTimer(ros::Duration(1.0),
+        sweepTimer_ = nodeHandle_.createTimer(ros::Duration(0.15),
                                               &Camera_signalman_nodelet::sweepTimerCallback,
                                               this);
         std::cout << "5" << std::endl;

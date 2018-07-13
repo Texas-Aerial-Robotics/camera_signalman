@@ -1,0 +1,24 @@
+subscribers:
+
+  camera_topics: [
+    "/webcam/image_raw",
+    "/webcam2/image_raw",
+    "/webcam4/image_raw",
+    "/webcam5/image_raw"
+
+  ]
+
+  camera_frame_ids: [
+    "camera_link",
+    "camera_link2",
+    "camera_link4",
+    "camera_link5"
+  ]
+
+  queue_size: 1
+
+publisher:
+
+    topic: "/camera_signalman/image_raw"
+
+    queue_size: 1
